@@ -1,0 +1,29 @@
+name: 'Changelog Generator'
+description: 'Automatically create a changelog for a release'
+inputs:
+  # repo-organization: # organization repo exists in (e.g. username)
+  #   description: 'Organization repo is under'
+  #   required: true
+  # repo-name: # name of the repo
+  #   description: 'Name of repo'
+  #   required: true
+  since-tag:
+    description: 'Changes after this tag are included (default last tag)'
+    required: false
+    default: '$(git describe --abbrev=0 --tags `git rev-list --tags --skip=1 --max-count=1`)'
+  github-token:
+    description: 'GitHub token to access the GitHub API (optional)'
+    required: false
+outputs:
+  changelog:
+    description: 'Contents of Changelog generated'
+runs:
+  using: 'docker'
+  image: 'docker://ferrarimarco/github-changelog-generator:latest'
+  args:
+    - $GITHUB_REPOSITORY
+    - --since-tag ${{ inputs.since-tag }}
+    - --t ${{ inputs.github-token }}
+branding:
+  icon: 'volume'
+  color: 'purple'
