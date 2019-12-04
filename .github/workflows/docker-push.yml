@@ -1,0 +1,26 @@
+name: Docker Push
+
+on:
+  push:
+    tags:
+    - '*'
+
+jobs:
+  push:
+    name: Push Container
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v1
+
+    - name: Publish Image to Github Package Repo
+      uses: machine-learning-apps/gpr-docker-publish@master
+      id: docker-push
+      with:
+        IMAGE_NAME: 'github-changelog-generator'
+        DOCKERFILE_PATH: 'Dockerfile'
+        BUILD_CONTEXT: './'
+        CACHE: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
