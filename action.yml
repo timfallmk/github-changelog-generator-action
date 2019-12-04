@@ -10,11 +10,7 @@ inputs:
   since-tag:
     description: 'Changes after this tag are included (default last tag)'
     required: false
-<<<<<<< HEAD
-    default: ''$(git describe --abbrev=0 --tags `git rev-list --tags --skip=1 --max-count=1`)''
-=======
-    default: \'$(git describe --abbrev=0 --tags `git rev-list --tags --skip=1 --max-count=1`)\'
->>>>>>> 0e27948d9556482fec5c8fd8af21a44587feffbf
+    default: '\'$(git describe --abbrev=0 --tags `git rev-list --tags --skip=1 --max-count=1`)\''
   github-token:
     description: 'GitHub token to access the GitHub API (optional)'
     required: true
