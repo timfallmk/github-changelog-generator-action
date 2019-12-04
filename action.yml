@@ -21,7 +21,7 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - $GITHUB_REPOSITORY
+    - ${GITHUB_REPOSITORY}
     - --since-tag ${{ inputs.since-tag }}
     - --t ${{ inputs.github-token }}
 branding:
