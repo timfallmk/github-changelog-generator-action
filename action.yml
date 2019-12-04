@@ -23,7 +23,7 @@ runs:
   args:
     - ${GITHUB_REPOSITORY}
     - --since-tag ${{ inputs.since-tag }}
-    - --t ${{ inputs.github-token }}
+    - -t ${{ inputs.github-token }}
 branding:
   icon: 'volume'
   color: 'purple'
