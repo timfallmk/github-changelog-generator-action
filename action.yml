@@ -19,12 +19,11 @@ outputs:
     description: 'Contents of Changelog generated'
 runs:
   using: 'docker'
-  image: 'docker://ferrarimarco/github-changelog-generator:latest'
+  image: 'Dockerfile'
   args:
     - $GITHUB_REPOSITORY
     - --since-tag ${{ inputs.since-tag }}
     - --t ${{ inputs.github-token }}
-    - -o '' # Blank output file to output to STDOUT
 branding:
   icon: 'volume'
   color: 'purple'
