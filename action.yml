@@ -22,7 +22,7 @@ runs:
   image: 'Dockerfile'
   args:
     - --since-tag ${{ inputs.since-tag }}
-    - --t ${{ inputs.github-token }}
+    - -t ${{ inputs.github-token }}
     - ${GITHUB_REPOSITORY}
 branding:
   icon: 'volume'
