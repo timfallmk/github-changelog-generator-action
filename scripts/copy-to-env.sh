@@ -7,4 +7,4 @@ if [[ -e 'CHANGELOG.md' ]]; then
 fi
 
 echo $CHANGELOG
-echo ::set-output name=previous-tag::${CHANGELOG}
+echo ::set-output name=changelog::${CHANGELOG}
