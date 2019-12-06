@@ -14,6 +14,9 @@ inputs:
   github-token:
     description: 'GitHub token to access the GitHub API (optional)'
     required: true
+  github-repo:
+    description: 'GitHub Repository location in the form organization/repository'
+    required: false
 outputs:
   changelog:
     description: 'Contents of Changelog generated'
@@ -21,7 +24,7 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${GITHUB_REPOSITORY}
+    - ${{ inputs.github-repo }}
     - --since-tag ${{ inputs.since-tag }}
     - -t ${{ inputs.github-token }}
 branding:
